@@ -1,0 +1,11 @@
+<form #newItemForm="ngForm" class="container form" (ngSubmit)="onSubmit()">
+  <input required #newItem name="newItem" class="new-item" [(ngModel)]="item" />
+  <button
+    #submit
+    name="submit"
+    [disabled]="newItemForm.invalid || newItem.disabled"
+    class="list-button"
+  >
+    Add Item
+  </button>
+</form>

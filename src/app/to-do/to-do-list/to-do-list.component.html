@@ -1,0 +1,17 @@
+<div class="container list" [class.align-start]="items.length">
+  @for (item of items; track $index) {
+  <li
+    class="list-item"
+    [class.margin-bottom-15]="$index > 0"
+    [class.margin-top-bottom-15]="$index === 0"
+  >
+    <input type="checkbox" class="check" *ngIf="!showDelete" />
+    <span class="description">{{ item }}</span>
+    <button class="delete" *ngIf="showDelete" (click)="onClick($index)">
+      <span class="material-icons delete-icon">delete</span>
+    </button>
+  </li>
+  } @empty {
+  <span class="margin-top-bottom-10">No To-Do Items</span>
+  }
+</div>

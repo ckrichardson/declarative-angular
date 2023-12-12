@@ -1,0 +1,55 @@
+.header {
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 5px;
+  border-color: black;
+}
+
+.list {
+  margin-top: 5vh;
+  width: 25vw;
+  min-width: 275px;
+  border: solid 3px;
+  border-radius: 2px;
+  border-color: black;
+  margin-bottom: 50px;
+  border-radius: 5px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.align-start {
+  align-items: start;
+  justify-content: space-evenly;
+}
+
+.delete {
+  background: transparent;
+  border: solid 1px;
+  border-radius: 5px;
+}
+
+.list-controls {
+  display: flex;
+  width: 400px;
+  justify-content: space-evenly;
+}
+
+.save-edit-clear {
+  width: 100px;
+  height: 30px;
+}
+
+h1 {
+  align-items: center;
+}

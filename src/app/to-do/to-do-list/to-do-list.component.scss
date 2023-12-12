@@ -1,0 +1,41 @@
+$list-item-height: 30px;
+
+.list {
+  margin-top: 5vh;
+  width: 25vw;
+  min-width: 275px;
+  border: solid 3px;
+  border-radius: 2px;
+  border-color: black;
+  margin-bottom: 50px;
+  border-radius: 5px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  height: $list-item-height;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.description {
+  margin-top: 2.5px;
+}
+
+.delete {
+  height: $list-item-height;
+}
+
+.delete-icon {
+  margin-top: 2px;
+  margin-right: 0.25px;
+}
+
+.check {
+  height: 30px;
+  width: 30px;
+}
