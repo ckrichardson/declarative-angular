@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { TodoFormComponent } from "./to-do-form.component";
 import { ToDoService } from "../service/to-do-service.service";
-import { toDoServiceMock } from "../../mocks/to-do-service-mock";
+import { toDoServiceMock } from "../service/mocks/to-do-service-mock";
 
 describe("TodoFormComponent", () => {
   let component: TodoFormComponent;

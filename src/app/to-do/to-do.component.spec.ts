@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { ToDoComponent } from "./to-do.component";
 import { ToDoService } from "./service/to-do-service.service";
-import { toDoServiceMock } from "../mocks/to-do-service-mock";
+import { toDoServiceMock } from "./service/mocks/to-do-service-mock";
 
 describe("ToDoListComponent", () => {
   let component: ToDoComponent;

@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 import { AppComponent } from "./app.component";
 import { ToDoService } from "./to-do/service/to-do-service.service";
-import { toDoServiceMock } from "./mocks/to-do-service-mock";
+import { toDoServiceMock } from "./to-do/service/mocks/to-do-service-mock";
 
 describe("AppComponent", () => {
   beforeEach(async () => {

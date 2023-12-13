@@ -1,6 +1,6 @@
 import { BehaviorSubject, Observable, Subject } from "rxjs";
-import { ToDoService } from "../to-do/service/to-do-service.service";
-import { ToDoModel } from "../to-do/service/model/to-do-model";
+import { ToDoService } from "../to-do-service.service";
+import { ToDoModel } from "../model/to-do-model";
 import { signal } from "@angular/core";
 
 const toDoItems = signal<string[]>([]);
