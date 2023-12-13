@@ -23,7 +23,7 @@ export class ToDoService {
   addItem(item: string): void {
     this._toDoItems.update((items) => {
       items.push(item);
-      return items;
+      return [...items];
     });
   }
 
@@ -32,7 +32,7 @@ export class ToDoService {
 
     this._toDoItems.update((items) => {
       items.splice(index, 1);
-      return items;
+      return [...items];
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterOutlet } from "@angular/router";
 import { ToDoComponent } from "./to-do/to-do.component";
@@ -9,6 +9,7 @@ import { ToDoService } from "./to-do/service/to-do-service.service";
 @Component({
   selector: "app-root",
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterOutlet, ToDoComponent],
   providers: [ToDoService],
   templateUrl: "./app.component.html",

@@ -36,8 +36,8 @@ describe("ToDoListComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  describe("Delete", () => {
-    it("should create copy of array with one less item when invoking onClick", () => {
+  describe("onClick", () => {
+    it("should create copy of array with one less item", () => {
       component.onClick(0);
 
       expect(toDoServiceMock.removeItem).toHaveBeenCalled();

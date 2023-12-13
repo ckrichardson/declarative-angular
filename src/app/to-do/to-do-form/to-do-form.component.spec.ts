@@ -28,7 +28,7 @@ describe("TodoFormComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  describe("Submit", () => {
+  describe("onSubmit", () => {
     beforeEach(() => {
       component.item = "mockItem";
       fixture.detectChanges();

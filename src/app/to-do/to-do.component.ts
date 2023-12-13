@@ -1,4 +1,10 @@
-import { Component, Input, ViewChild, inject } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewChild,
+  inject,
+} from "@angular/core";
 import { TodoFormComponent } from "./to-do-form/to-do-form.component";
 import { ToDoListComponent } from "./to-do-list/to-do-list.component";
 import { ToDoService } from "./service/to-do-service.service";
@@ -10,6 +16,7 @@ import { ToDoModel } from "./service/model/to-do-model";
   selector: "app-to-do",
   standalone: true,
   imports: [TodoFormComponent, ToDoListComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./to-do.component.html",
   styleUrl: "./to-do.component.scss",
 })

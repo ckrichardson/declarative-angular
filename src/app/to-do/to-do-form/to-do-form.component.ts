@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -16,6 +17,7 @@ import { distinctUntilChanged } from "rxjs";
 @Component({
   selector: "app-to-do-form",
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [FormsModule, CommonModule],
   templateUrl: "./to-do-form.component.html",
   styleUrl: "./to-do-form.component.scss",

@@ -30,7 +30,7 @@ describe("ToDoService", () => {
     });
   });
 
-  describe("Add Item", () => {
+  describe("addItem", () => {
     it("should add item to list of items", () => {
       service.addItem("test");
 
@@ -38,7 +38,7 @@ describe("ToDoService", () => {
     });
   });
 
-  describe("Remove Item", () => {
+  describe("removeItem", () => {
     it("should remove an item from list of items", () => {
       service.addItem("test");
       service.removeItem(0);
@@ -47,7 +47,7 @@ describe("ToDoService", () => {
     });
   });
 
-  describe("Save List", () => {
+  describe("save", () => {
     it("should set showDelete to false", () => {
       service.save();
 
@@ -55,7 +55,7 @@ describe("ToDoService", () => {
     });
   });
 
-  describe("Edit List", () => {
+  describe("edit", () => {
     it("should set showDelete to true", () => {
       service.edit();
 
@@ -63,7 +63,7 @@ describe("ToDoService", () => {
     });
   });
 
-  describe("Clear List", () => {
+  describe("clear", () => {
     it("should set showDelete to true and empty the item list", () => {
       service.addItem("test");
       service.save();
