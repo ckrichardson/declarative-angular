@@ -23,6 +23,8 @@ This project experiments with the onPush change detection strategy
 Unit Tests may be run with
 `npm run test`
 
+Run with the `--code-coverage=true` to generate a code coverage report
+
 ## Folder Structure
 
 The folder structure paradigm draws from angular's suggested structure at https://angular.io/guide/file-structure.
