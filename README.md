@@ -1,6 +1,6 @@
-# TemplateDrivenForms
+# Declarative Angular
 
-This is a demo To-Do list to experiment with template driven forms and validation in Angular
+This is a demo To-Do list to experiment with declarative, template driven forms in Angular
 
 ## Development server
 
