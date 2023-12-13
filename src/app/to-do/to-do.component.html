@@ -2,8 +2,8 @@
   <div class="header">
     <h1>To-Do List</h1>
   </div>
-  <app-to-do-form (newItem)="onNewItem($event)"></app-to-do-form>
-  <app-to-do-list [items]="items"></app-to-do-list>
+  <app-to-do-form></app-to-do-form>
+  <app-to-do-list [vm]="vm"></app-to-do-list>
   <div class="margin-top-15 list-controls">
     <button class="save-edit-clear" (click)="onSave()">Save</button>
     <button class="save-edit-clear" (click)="onEdit()">Edit</button>

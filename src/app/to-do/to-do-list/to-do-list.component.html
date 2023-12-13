@@ -1,13 +1,13 @@
-<div class="container list" [class.align-start]="items.length">
-  @for (item of items; track $index) {
+<div class="container list" [class.align-start]="vm.toDoItems.length">
+  @for (item of vm.toDoItems(); track $index) {
   <li
     class="list-item"
     [class.margin-bottom-15]="$index > 0"
     [class.margin-top-bottom-15]="$index === 0"
   >
-    <input type="checkbox" class="check" *ngIf="!showDelete" />
+    <input type="checkbox" class="check" *ngIf="!vm.showDelete()" />
     <span class="description">{{ item }}</span>
-    <button class="delete" *ngIf="showDelete" (click)="onClick($index)">
+    <button class="delete" *ngIf="vm.showDelete()" (click)="onClick($index)">
       <span class="material-icons delete-icon">delete</span>
     </button>
   </li>

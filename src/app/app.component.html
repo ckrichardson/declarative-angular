@@ -1,5 +1,7 @@
 <main class="main">
   <title>Template Driven Forms</title>
-  <app-to-do></app-to-do>
+  <div *ngIf="vm$ | async as vm">
+    <app-to-do [vm]="vm"></app-to-do>
+  </div>
 </main>
 <router-outlet></router-outlet>

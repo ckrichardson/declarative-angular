@@ -1,48 +1,34 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
 import {
   Component,
   EventEmitter,
+  Input,
   Output,
   ViewChild,
   inject,
-} from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { ToDoService } from '../to-do-service.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+} from "@angular/core";
+import { FormsModule, NgForm } from "@angular/forms";
+import { ToDoService } from "../service/to-do-service.service";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { ToDoModel } from "../service/model/to-do-model";
+import { distinctUntilChanged } from "rxjs";
 
 @Component({
-  selector: 'app-to-do-form',
+  selector: "app-to-do-form",
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './to-do-form.component.html',
-  styleUrl: './to-do-form.component.scss',
+  templateUrl: "./to-do-form.component.html",
+  styleUrl: "./to-do-form.component.scss",
 })
 export class TodoFormComponent {
-  @Output() newItem = new EventEmitter<string>();
-  @ViewChild('newItemForm') newItemForm!: NgForm;
+  @ViewChild("newItemForm") newItemForm!: NgForm;
 
-  item: string = '';
+  item: string = "";
 
   private readonly service = inject(ToDoService);
 
-  constructor() {
-    this.service.save.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.newItemForm.reset();
-      this.newItemForm?.form.disable();
-    });
-
-    this.service.edit.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.newItemForm.form.enable();
-    });
-
-    this.service.clear.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.newItemForm.form.enable();
-      this.newItemForm?.reset();
-    });
-  }
-
   onSubmit(): void {
-    this.newItem.emit(this.item);
+    this.service.addItem(this.item);
     this.newItemForm.reset();
   }
 }

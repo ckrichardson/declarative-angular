@@ -1,12 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ToDoListComponent } from './to-do-list.component';
-import { ToDoService } from '../to-do-service.service';
-import { toDoServiceMock } from '../../mocks/to-do-service-mock';
+import { ToDoListComponent } from "./to-do-list.component";
+import { ToDoService } from "../service/to-do-service.service";
+import { toDoServiceMock } from "../../mocks/to-do-service-mock";
+import { ToDoModel } from "../service/model/to-do-model";
+import { Observable } from "rxjs";
 
-describe('ToDoListComponent', () => {
+describe("ToDoListComponent", () => {
   let component: ToDoListComponent;
   let fixture: ComponentFixture<ToDoListComponent>;
+  let removeSpy;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -17,47 +20,27 @@ describe('ToDoListComponent', () => {
       useFactory: () => toDoServiceMock,
     });
 
+    const service = TestBed.inject(ToDoService);
+
     fixture = TestBed.createComponent(ToDoListComponent);
     component = fixture.componentInstance;
+
+    component.vm = service.vm;
+
+    removeSpy = spyOn(service, "removeItem");
+
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Delete Icon', () => {
-    it('should create copy of array with one less item when invoking onClick', () => {
-      const expected = ['one', 'three'];
-      component.items = ['one', 'two', 'three'];
+  describe("Delete", () => {
+    it("should create copy of array with one less item when invoking onClick", () => {
+      component.onClick(0);
 
-      component.onClick(1);
-
-      expect(component.items).toEqual(expected);
-    });
-  });
-
-  describe('List Actions', () => {
-    describe('save', () => {
-      it('should set showDelete to false', () => {
-        toDoServiceMock.saveList();
-
-        expect(component.showDelete).toBeFalse();
-      });
-    });
-    describe('edit', () => {
-      it('should set showDelete to true', () => {
-        toDoServiceMock.editList();
-
-        expect(component.showDelete).toBeTrue();
-      });
-    });
-    describe('edit', () => {
-      it('should set showDelete to true', () => {
-        toDoServiceMock.clearList();
-
-        expect(component.showDelete).toBeTrue();
-      });
+      expect(toDoServiceMock.removeItem).toHaveBeenCalled();
     });
   });
 });

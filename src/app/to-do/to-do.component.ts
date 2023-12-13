@@ -1,46 +1,32 @@
-import { Component, ViewChild, inject } from '@angular/core';
-import { TodoFormComponent } from './to-do-form/to-do-form.component';
-import { ToDoListComponent } from './to-do-list/to-do-list.component';
-import { ToDoService } from './to-do-service.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NgForm } from '@angular/forms';
+import { Component, Input, ViewChild, inject } from "@angular/core";
+import { TodoFormComponent } from "./to-do-form/to-do-form.component";
+import { ToDoListComponent } from "./to-do-list/to-do-list.component";
+import { ToDoService } from "./service/to-do-service.service";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { NgForm } from "@angular/forms";
+import { ToDoModel } from "./service/model/to-do-model";
 
 @Component({
-  selector: 'app-to-do',
+  selector: "app-to-do",
   standalone: true,
   imports: [TodoFormComponent, ToDoListComponent],
-  providers: [ToDoService],
-  templateUrl: './to-do.component.html',
-  styleUrl: './to-do.component.scss',
+  templateUrl: "./to-do.component.html",
+  styleUrl: "./to-do.component.scss",
 })
 export class ToDoComponent {
-  @ViewChild(TodoFormComponent) form!: NgForm;
+  @Input() vm!: ToDoModel;
 
-  items: string[] = [];
-  editable = true;
-
-  private readonly service = inject(ToDoService);
-
-  constructor() {
-    this.service.clear.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.items = [];
-    });
-  }
-
-  onNewItem(item: string): void {
-    this.items.push(item);
-    this.items = [...this.items];
-  }
+  readonly service = inject(ToDoService);
 
   onSave(): void {
-    this.service.saveList();
+    this.service.save();
   }
 
   onEdit(): void {
-    this.service.editList();
+    this.service.edit();
   }
 
   onClear(): void {
-    this.service.clearList();
+    this.service.clear();
   }
 }

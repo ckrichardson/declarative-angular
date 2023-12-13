@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { TodoFormComponent } from './to-do-form.component';
-import { ToDoService } from '../to-do-service.service';
-import { toDoServiceMock } from '../../mocks/to-do-service-mock';
+import { TodoFormComponent } from "./to-do-form.component";
+import { ToDoService } from "../service/to-do-service.service";
+import { toDoServiceMock } from "../../mocks/to-do-service-mock";
 
-describe('TodoFormComponent', () => {
+describe("TodoFormComponent", () => {
   let component: TodoFormComponent;
   let fixture: ComponentFixture<TodoFormComponent>;
 
@@ -24,17 +24,17 @@ describe('TodoFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Submit', () => {
+  describe("Submit", () => {
     beforeEach(() => {
-      component.item = 'mockItem';
+      component.item = "mockItem";
       fixture.detectChanges();
     });
 
-    it('should emit the new item and reset the form', () => {
+    it("should emit the new item and reset the form", () => {
       component.onSubmit();
 
       expect(component.item).toBeNull();

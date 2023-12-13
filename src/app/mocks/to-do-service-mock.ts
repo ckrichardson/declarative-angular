@@ -1,21 +1,28 @@
-import { Subject } from 'rxjs';
-import { ToDoService } from '../to-do/to-do-service.service';
+import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { ToDoService } from "../to-do/service/to-do-service.service";
+import { ToDoModel } from "../to-do/service/model/to-do-model";
+import { signal } from "@angular/core";
 
-const _save$ = new Subject<null>();
-const _edit$ = new Subject<null>();
-const _clear$ = new Subject<null>();
+const toDoItems = signal<string[]>([]);
+const showDelete = signal<boolean>(true);
+const vm$ = new BehaviorSubject<ToDoModel>({
+  showDelete,
+  toDoItems,
+});
+const vm = {
+  showDelete,
+  toDoItems,
+};
 
 export const toDoServiceMock = {
-  save: _save$.asObservable(),
-  edit: _edit$.asObservable(),
-  clear: _clear$.asObservable(),
-  saveList: () => {
-    _save$.next(null);
-  },
-  editList: () => {
-    _edit$.next(null);
-  },
-  clearList: () => {
-    _clear$.next(null);
-  },
-} as ToDoService;
+  _toDoItems: toDoItems,
+  _showDelete: showDelete,
+  _vm$: vm$,
+  vm$: vm$.asObservable(),
+  vm: vm$.value,
+  save: () => {},
+  edit: () => {},
+  clear: () => {},
+  addItem: (item: string) => {},
+  removeItem: (index: number) => {},
+} as unknown as ToDoService;
