@@ -10,9 +10,6 @@ import {
 } from "@angular/core";
 import { FormsModule, NgForm } from "@angular/forms";
 import { ToDoService } from "../service/to-do-service.service";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { ToDoModel } from "../service/model/to-do-model";
-import { distinctUntilChanged } from "rxjs";
 
 @Component({
   selector: "app-to-do-form",

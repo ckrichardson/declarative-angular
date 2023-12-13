@@ -6,7 +6,6 @@ import {
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ToDoService } from "../service/to-do-service.service";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { ToDoModel } from "../service/model/to-do-model";
 
 @Component({
